@@ -1,0 +1,18 @@
+---
+framework: mocha
+preRun:
+     command:
+        - yarn install
+        - yarn run build
+        - yarn run test
+preMerge:
+  pattern:
+    - "./test/test.build.js"
+postMerge: 
+  pattern: 
+    - "./test/test.build.js"
+postRun:
+     command:
+        - yarn --version
+configFile: "./test/webpack.config.js"
+version: 1.0
